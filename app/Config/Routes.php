@@ -10,16 +10,26 @@ $routes->get('/', 'Home::index');
 $routes->get('login', 'Home::login');
 $routes->post('loginUser', 'Home::loginUser');
 $routes->get('logout', 'Home::logout');
-$routes->post('login', 'Home::login');         // Handles form POST
-// $routes->get('login', 'Home::showLogin');   
+$routes->post('login', 'Home::login');     
 
-// $routes->get('index', 'signup::index');
-// $routes->post('register', 'signup::register');
-// $routes->get('login', 'Auth::login');
-// $routes->post('loginUser', 'Auth::loginUser');
-// $routes->get('logout', 'Auth::logout');
+
 //This is for register
-$routes->setDefaultNamespace('App\Controllers');
-$routes->get('register', 'Signup::index'); // THIS is what fixes your error!
+ $routes->setDefaultNamespace('App\Controllers');
+$routes->get('register', 'Signup::index'); 
 $routes->post('signup/register', 'Signup::register');
 
+$routes->get('/dashboard', 'Dashboard::dashboard');
+
+//for post
+
+$routes->get('post', 'PostController::index');
+$routes->get('/post/manage', 'PostController::manage');
+$routes->get('post/postList', 'PostController::postList');
+$routes->post('post/save', 'PostController::save'); 
+$routes->get('post/view/(:num)', 'PostController::view/$1');
+$routes->delete('post/delete/(:num)', 'PostController::delete/$1');
+
+$routes->get('/post/fetchAll', 'PostController::fetchAll');   
+$routes->get('/post/get/(:num)', 'PostController::getPost/$1'); 
+$routes->post('/post/update', 'PostController::update'); 
+$routes->get('post/fetchPublishedPosts', 'PostController::fetchPublishedPosts');

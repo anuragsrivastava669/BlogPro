@@ -9,7 +9,7 @@ class Home extends Controller
 {
     public function index()
     {
-        return view('home');
+        return redirect()->to('/login');
     }
 
     public function login()
@@ -19,27 +19,49 @@ class Home extends Controller
 
     public function loginUser()
     {
-        $userModel = new UserModel();
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-         //fetch user from database
+
+        $userModel = new UserModel();
         $user = $userModel->where('email', $email)->first();
 
-        if ($user && password_verify($password, $user['password'])) {
-            session()->set([
-                'user_id'   => $user['id'],
-                'user_name' => $user['name'],
-                'logged_in' => true,
+        if (!$user || !password_verify($password, $user['password'])) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Invalid email or password.'
             ]);
-            return redirect()->to('/post');
-        } else {
-            return redirect()->back()->with('error', 'Invalid email or password');
         }
+
+        if ($user === NULL) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Please verify your email before logging in.'
+            ]);
+        }
+          
+        
+        // Set session
+        session()->set([
+            'user_id'     => $user['id'],
+            'user_email'  => $user['email'],
+            'user_name'   => $user['name'],
+            'isLoggedIn'  => true
+        ]);
+        
+        return $this->response->setJSON(['status' => 'success']);
     }
 
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+
+        if ($this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Logged out successfully.'
+            ]);
+        }
+
+        return redirect()->to('/login')->with('success', 'You have been logged out.');
     }
 }

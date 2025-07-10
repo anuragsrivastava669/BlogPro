@@ -1,12 +1,32 @@
 $(document).ready(function () {
-    $('#signupForm').on('submit', function (e) {
-        let name = $('input[name="name"]').val().trim();
-        let email = $('input[name="email"]').val().trim();
-        let password = $('input[name="password"]').val().trim();
+    $('#signupForm').submit(function (e) {
+        e.preventDefault(); // Stop normal form submission
 
-        if (!name || !email || !password) {
-            alert("All fields are required.");
-            e.preventDefault();
-        }
+        $.ajax({
+            url: BASE_URL + 'signup/register',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (res) {
+                if (res.status === 'success') {
+                    alert('User registered successfully! Redirecting to login...');
+                    setTimeout(function () {
+                        window.location.href = BASE_URL + 'login';
+                    }, 1500);
+                     $('#signupForm')[0].reset();
+                } else if (res.errors) {
+                    let errorList = '<ul class="errors">';
+                    $.each(res.errors, function (key, val) {
+                        errorList += '<li>' + val + '</li>';
+                    });
+                    errorList += '</ul>';
+                    $('#signupForm').before(errorList);
+                }
+            },
+            error: function (xhr) {
+                alert('AJAX Error: ' + xhr.responseText);
+                console.log(xhr.responseText);
+            }
+        });
     });
 });

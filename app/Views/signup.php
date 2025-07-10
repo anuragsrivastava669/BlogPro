@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Signup</title>
-    <link rel="stylesheet" href="<?= base_url('css/signup.css') ?>">
+    <meta charset="UTF-8">
+    <title>Signup - Postify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/signup.css') ?>">
+
+    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="<?= base_url('js/signup.js') ?>"></script>
+    <!-- External JS -->
+     <script>
+     const BASE_URL = "<?= base_url() ?>";
+     </script>
+    <script src="<?= base_url('assets/js/signup.js') ?>"></script>
 </head>
 <body>
 
-<div class="container">
-        <div class="logo">
-            <img src="https://img.icons8.com/emoji/48/000000/smiling-face.png" alt="Postify Logo">
-            <h1>Postify</h1>
-        </div>
-
-    <h2>Please Register</h2>
+<div class="signup-container">
+    <h2>Create Your Account</h2>
 
     <?php if (session()->getFlashdata('success')): ?>
         <p class="success"><?= session()->getFlashdata('success') ?></p>
@@ -28,16 +33,19 @@
         </ul>
     <?php endif; ?>
 
-    <form id="signupForm" method="post" action="<?= base_url('signup/register') ?>">
-        <input type="text" name="name" placeholder="Full Name" required><br>
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
+    <form id="signupForm" method="post" >
+        <?= csrf_field() ?>
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Register</button>
-        <div>
-             <a href="<?= base_url('login') ?>">Sign in</a>
+        <div class="login-link">
+            Already have an account? 
+            <a href="<?= base_url('login') ?>">Sign in</a>
         </div>
     </form>
 </div>
 
 </body>
 </html>
+

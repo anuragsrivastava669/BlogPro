@@ -1,53 +1,95 @@
-/* public/css/style.css */
-body {
+/* Reset default styles */
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+/* Center the form */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.form-container {
-    background-color: #fff;
-    padding: 30px;
+/* Signup card */
+.signup-container {
+    background-color: #ffffff;
+    padding: 30px 35px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-}
-
-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-form input {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Heading */
+.signup-container h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Inputs */
+.signup-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Button */
+.signup-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.signup-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Flash Messages */
+.success {
+    color: green;
+    background: #eaffea;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
-form button {
-    width: 100%;
+.errors {
+    color: red;
+    background: #ffe6e6;
     padding: 10px;
-    background-color: #4285f4;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    text-align: left;
+    list-style: square;
 }
 
-form button:hover {
-    background-color: #3367d6;
+/* Link text */
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
 }

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Postify - Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Link external CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
 </head>
 <body>
     <div class="container">
@@ -22,7 +22,7 @@
             <div class="error"><?= session()->getFlashdata('error') ?></div>
         <?php endif; ?>
 
-        <form method="post" action="<?= base_url('/login') ?>" id="loginForm">
+        <form method="post"  id="loginForm">
             <?= csrf_field() ?>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
@@ -36,8 +36,11 @@
             </div>
         </form>
     </div>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Link external JS -->
+    <script>
+       const BASE_URL = "<?= base_url() ?>";
+    </script>
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
 </body>
 </html>
