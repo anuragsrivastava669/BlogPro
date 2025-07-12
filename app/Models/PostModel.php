@@ -8,5 +8,5 @@ class PostModel extends Model
 {
     protected $table = 'posts';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['user_id', 'title', 'excerpt', 'content', 'author', 'date', 'status'];
+    protected $allowedFields = ['user_id', 'title', 'excerpt', 'content', 'author', 'date'];
 }

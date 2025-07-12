@@ -8,9 +8,9 @@ $(document).ready(function () {
             posts.forEach(function (post) {
                 html += `
                 <div class="post-card">
-                    <div class="post-title">${post.title}</div>
-                    <div class="post-excerpt">${post.excerpt}</div>
-                    <div class="post-meta">${post.date}, ${post.author}</div>
+                    <h2>${post.title}</h2>
+                    <p>${post.excerpt}</p>
+                    <small>${post.date} , ${post.author}</small>
                 </div>`;
             });
             $('#postsContainer').html(html);

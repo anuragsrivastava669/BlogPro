@@ -1,46 +1,41 @@
 body {
-    background-color: #fef6f3;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fdf7f5;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 .container {
-    max-width: 900px;
-    margin: auto;
-    border: 1px solid #f2ccc1;
+    max-width: 800px;
+    margin: 30px auto;
     padding: 20px;
-    background-color: #fffaf8;
+    border: 1px solid #f1d4c6;
 }
 
 .logo {
-    color: #f04f23;
-    font-weight: bold;
-    font-size: 24px;
     text-align: center;
+    color: #f25c05;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .post-card {
-    background-color: #ffffff;
-    border: 1px solid #f2ccc1;
+    background: #fff;
+    border: 1px solid #f3d9d0;
     padding: 20px;
     margin-bottom: 15px;
 }
 
-.post-title {
-    font-size: 24px;
-    font-weight: bold;
+.post-card h2 {
+    margin: 0;
     color: #1a1a1a;
-    margin-bottom: 10px;
+    font-size: 24px;
 }
 
-.post-excerpt {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 10px;
+.post-card p {
+    color: #555;
 }
 
-.post-meta {
-    font-size: 14px;
-    color: #666;
+.post-card small {
+    color: #999;
 }

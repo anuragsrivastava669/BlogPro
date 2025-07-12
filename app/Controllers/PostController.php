@@ -24,14 +24,33 @@ class PostController extends BaseController
     {
         return view('post_list'); 
     }
+    
+     public function show()
+    {
+        return view('post_view');
+    }
 
+    public function postShow($id)
+    {
+        $postModel = new PostModel();
+        $post = $postModel->find($id);
+
+        if ($post) {
+            return $this->response->setJSON($post);
+        } else {
+            return $this->response->setStatusCode(404)->setJSON(['error' => 'Post not found']);
+        }
+    }
     
     public function fetchPublishedPosts()
     {
-    $postModel = new PostModel();
-    $posts = $postModel->where('status', 'published')->orderBy('date', 'DESC')->findAll();
+    $session = session();
+        $user_id = $session->get('user_id');
 
-    return $this->response->setJSON($posts);
+        $postModel = new PostModel();
+        $posts = $postModel->where('user_id', $user_id)->findAll();
+
+        return $this->response->setJSON($posts);
     }
 
      public function save()

@@ -39,11 +39,7 @@ class PostsTable extends Migration
             'date' => [
             'type' => 'DATE',
             ],
-            'status' => [
-                'type'   => 'VARCHAR',
-                'constraint' => 100,
-                'default'    => 'draft',
-            ],
+            
             'created_at'  => [
                 'type' => 'DATETIME',
                 'null' => true,
