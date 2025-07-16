@@ -47,7 +47,6 @@ class Home extends Controller
             'user_name'   => $user['name'],
             'isLoggedIn'  => true
         ]);
-        
         return $this->response->setJSON(['status' => 'success']);
     }
 

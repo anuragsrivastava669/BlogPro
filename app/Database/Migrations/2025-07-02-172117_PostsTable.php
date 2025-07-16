@@ -24,11 +24,7 @@ class PostsTable extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'excerpt' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null'       => true,
-            ],
+            
             'content'     => [
                 'type' => 'TEXT',
             ],

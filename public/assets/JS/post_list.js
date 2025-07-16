@@ -9,7 +9,7 @@ $(document).ready(function () {
                 html += `
                 <div class="post-card">
                     <h2>${post.title}</h2>
-                    <p>${post.excerpt}</p>
+                    <p class="post-content">${post.content}</p>
                     <small>${post.date} , ${post.author}</small>
                 </div>`;
             });

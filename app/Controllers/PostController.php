@@ -25,9 +25,18 @@ class PostController extends BaseController
         return view('post_list'); 
     }
     
-     public function show()
+    public function show()
     {
-        return view('post_view');
+    $userId = session()->get('user_id');
+
+    if (!$userId) {
+        return redirect()->to('/login')->with('error', 'You must be logged in.');
+    }
+
+    $postModel = new PostModel();
+    $posts = $postModel->where('user_id', $userId)->findAll();
+
+    return view('post_view', ['posts' => $posts]);
     }
 
     public function postShow($id)
@@ -43,15 +52,13 @@ class PostController extends BaseController
     }
     
     public function fetchPublishedPosts()
-    {
-    $session = session();
-        $user_id = $session->get('user_id');
+{
+    $postModel = new PostModel();
+    $posts = $postModel->findAll(); 
 
-        $postModel = new PostModel();
-        $posts = $postModel->where('user_id', $user_id)->findAll();
+    return $this->response->setJSON($posts);
+}
 
-        return $this->response->setJSON($posts);
-    }
 
      public function save()
     {

@@ -20,7 +20,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (res) {
                 if (res.status === 'success') {
-                    window.location.href = BASE_URL + 'post'; 
+                    window.location.href = BASE_URL + 'post/postList'; 
                 } else {
                     alert(res.message || 'Login failed!');
                 }

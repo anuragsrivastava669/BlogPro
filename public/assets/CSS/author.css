@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fef6f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.logo {
+    color: #f13a1e;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#authorName {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+#postCount {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.post-card {
+    width: 100%;
+    max-width: 700px;
+    background-color: #fff;
+    border: 1px solid #f3d1cb;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.post-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.post-excerpt {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post-date {
+    font-size: 14px;
+    color: #777;
+}
+
+.view-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    background: #f13a1e;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.view-link:hover {
+    background-color: #d12f16;
+}

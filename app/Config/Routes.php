@@ -22,7 +22,7 @@ $routes->get('/dashboard', 'Dashboard::dashboard');
 
 //for post
 
-$routes->get('post', 'PostController::index');
+$routes->get('/post', 'PostController::index');
 $routes->get('/post/manage', 'PostController::manage');
 $routes->get('post/postList', 'PostController::postList');
 $routes->get('/post/show', 'PostController::show'); 
@@ -34,4 +34,7 @@ $routes->get('/post/fetchAll', 'PostController::fetchAll');
 $routes->get('/post/get/(:num)', 'PostController::getPost/$1'); 
 $routes->post('/post/update', 'PostController::update'); 
 $routes->get('post/fetchPublishedPosts', 'PostController::fetchPublishedPosts');
+
+$routes->get('/author', 'AuthorController::index');
+$routes->get('/author/fetch-posts', 'AuthorController::fetchPosts');
 $routes->get('/post/postShow/(:num)', 'PostController::postShow/$1'); 

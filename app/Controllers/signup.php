@@ -9,7 +9,7 @@ class Signup extends BaseController
 {
     public function index()
     {
-        return view('signup'); // It loads app/Views/signup.php
+        return view('signup'); 
     }
 
     public function register()
